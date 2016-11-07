@@ -4,6 +4,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seasons</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -113,7 +114,7 @@ function tlo(){
    
         <form action="" method="POST">
            <div class="form">
-                <input type="text" name="actual_date" id="datepicker" class="actual_date" placeholder="Wybierz datę">
+                <input type="text" name="actual_date" id="datepicker" class="actual_date" placeholder="Wybierz datę by zmienić tło">
                 <input type="text" name="birthday_date" id="datepicker2" class="birthday_date" placeholder="Data urodzenia">
             </div>
                 <input type="submit" name="form_callendar" value="Zmień">

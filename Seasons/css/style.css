@@ -6,11 +6,14 @@
     }
 
     .tlo {
-        background-size: cover;
         background-color: #3D6980;
-        background-attachment: fixed;
         background-position: center;
-        height: 100vh;}
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size:cover;
+        background-size: cover;
+        background-position: center;
+        }
 
       form {
         background-color: rgba(118,22,116,0.5);
@@ -24,7 +27,7 @@
         -ms-flex-wrap: wrap;
         -webkit-flex-wrap: wrap;
         flex-wrap: wrap;
-        width: 40%;
+        width: 44%;
         margin: 0 auto; 
     }
 
