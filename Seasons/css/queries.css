@@ -1,0 +1,47 @@
+@media only screen and (max-width: 990px){
+    .form {
+        width: 55%;
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .form {
+        width: 80%;
+    }
+    
+    input[type="submit"] {
+        width: 15%;
+        margin-top: 2%;
+        margin-bottom: 2%
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .form {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 425px){
+    .form {
+        width: 99%;
+    }
+    
+    input[type="submit"] {
+        width: 20%;}
+}
+
+@media only screen and (max-width: 400px){
+    .form {
+        width: 80%;
+    }
+    
+    input {
+        width: 80%;
+        margin: 2% auto;
+    }
+    
+    input[type="submit"] {
+        width: 25%;}
+}
+

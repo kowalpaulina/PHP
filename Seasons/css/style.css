@@ -1,0 +1,76 @@
+
+    body {
+        margin:0;
+        padding: 0;
+        font-family: 'Alegreya Sans', sans-serif;
+    }
+
+    .tlo {
+        background-size: cover;
+        background-color: #3D6980;
+        background-attachment: fixed;
+        background-position: center;
+        height: 100vh;}
+
+      form {
+        background-color: rgba(118,22,116,0.5);
+        padding: 0.5% 0 0.1% 0;}
+    
+    .form {
+        justify-content: space-between;
+        -ms-display: flex;
+        -webkit-display: flex;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        width: 40%;
+        margin: 0 auto; 
+    }
+
+    input {
+        padding: 12px;
+        background-color: rgba(118,22,116, 0.9);
+        font-family: Arial, sans-serif;
+        border-radius: 5%;
+        border: 0.5px solid rgba(118,22,116, 0.9);;
+        outline: none;
+        color: #fff;  
+    }
+
+    input[type="submit"] {
+        background-color: rgba(118,22,116, 0.9);
+        color: #fff;
+        margin: 1% auto 0.2% auto;
+        display: block;
+        width: 10%;
+    }
+
+    .zima {
+        background-image: url('img/winter_unsplash-min.jpg');
+    }
+    
+     .jesien {
+        background-image: url('img/autumn2_unsplash-min.jpg');
+    }
+
+     .lato {
+        background-image: url('img/Summer_unsplash-min.jpg');
+    }
+
+     .wiosna {
+        background-image: url('img/spring_unsplash-min.jpg');
+    }
+
+    .urodziny {
+        background-image: url('https://media.giphy.com/media/VkPqT0OEN6jKM/giphy.gif');
+    }
+
+    form .errors {
+        color: #fff;
+        font-size: 15px;
+        margin: 1% 30%;
+        font-weight: bold;
+    }
+    
+    
