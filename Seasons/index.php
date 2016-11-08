@@ -19,6 +19,8 @@
 
 $start_function=false;
 $start_default_background=false; 
+global $now;
+    global $pora;
 
     
 if(isset($_POST['form_callendar'])){
@@ -34,65 +36,73 @@ if(isset($_POST['form_callendar'])){
     $start_default_background=true;   
 }
 
-function default_background(){
-        $zima = '12-21'; //początek pory roku
-        $wiosna = '03-22';
-        $lato = '06-21';
-        $jesien = '09-21';
+function default_date(){
 
-        $teraz=date('m-d');
-        $urodziny='05-08';
-        $spring = ($teraz >=$wiosna) && ($teraz<$lato) && ($teraz != $urodziny);
-        $summer = ($teraz >=$lato)&&($teraz<$jesien) && ($teraz != $urodziny);
-        $winter = ($teraz >= $zima)||($teraz<$wiosna) && ($teraz != $urodziny);
-        $birthday = ($teraz == $urodziny);
-
-      if($winter){
-          echo 'zima';
-      } else if($spring) {
-          echo 'wiosna';
-      } else if ($summer){
-          echo 'lato';
-      } else if($birthday) {
-          echo 'urodziny';
-      } else {
-          echo 'jesien';
-        } 
-    } 
+        $now=date('m-d');
+        $birthday_day='05-08';
+    
+    seasonal($now,$birthday_day);
+}
+    
         
-function tlo(){
+function seasonal_date(){
     
     $mc=substr($_POST['actual_date'],3,2);
     $day=substr($_POST['actual_date'],0,2);
+    $now=$mc.'-'.$day;  
     
-    $correct_format_date=$mc.'-'.$day;  
     $mc_birthday=substr($_POST['birthday_date'],3,2);
     $day_birthday=substr($_POST['birthday_date'],0,2);
+    $birthday_day=$mc_birthday.'-'.$day_birthday;  
     
-    $correct_format_birthday_date=$mc_birthday.'-'.$day_birthday;   
+    seasonal($now,$birthday_day);
+}
+    
+    
+    
+        
+function seasonal($now,$birthday_day){ 
         
     $zima = '12-21'; //początek pory roku
     $wiosna = '03-22';
     $lato = '06-21';
     $jesien = '09-21';
+    $pora = '';
     
-    $spring = ($correct_format_date >=$wiosna) && ($correct_format_date<$lato) && ($correct_format_date != $correct_format_birthday_date);
-    $summer = ($correct_format_date >=$lato)&&($correct_format_date<$jesien) && ($correct_format_date != $correct_format_birthday_date);
-    $winter = ($correct_format_date >= $zima)||($correct_format_date<$wiosna) && ($correct_format_date != $correct_format_birthday_date);
-    $birthday = ($correct_format_date == $correct_format_birthday_date);
     
-  if($winter){
+    if(($now >=$wiosna) && ($now<$lato) && ($now != $birthday_day)){
+        $pora = 'spring';
+    } elseif (($now >=$lato) && ($now<$jesien) && ($now != $birthday_day)){
+        $pora = 'summer';
+    }elseif(($now >= $zima)||($now<$wiosna) && ($now != $birthday_day)){
+        $pora = 'winter';
+    }elseif($now == $birthday_day) {
+        $pora = 'birthday';
+    }
+
+    
+    background($pora);
+}
+    
+    
+    
+function background($pora){ 
+        
+        
+  if($pora=='winter'){
       echo 'zima';
-  } else if($spring) {
+  } else if($pora=='spring') {
       echo 'wiosna';
-  } else if ($summer){
+  } else if ($pora=='summer'){
       echo 'lato';
-  } else if($birthday) {
+  } else if($pora=='birthday') {
       echo 'urodziny';
   } else {
       echo 'jesien';
   }
-}
+}    
+    
+    
 
 /*function filter(){
     //$teraz=date('H:i');
@@ -109,7 +119,7 @@ function tlo(){
 }*/
 ?>
 
-<body class="tlo <?php if($start_function){tlo();} if($start_default_background){default_background();}?>">
+<body class="tlo <?php if($start_function){seasonal_date();} if($start_default_background){default_date();}?>">
 
    
         <form action="" method="POST">
